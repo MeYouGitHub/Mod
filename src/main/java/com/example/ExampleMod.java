@@ -37,24 +37,12 @@ public class ExampleMod implements ModInitializer {
 			})
 			.build();
 
-	public static final Block CHARGEABLE_BLOCK = new ChargeableBlock(FabricBlockSettings.create().strength(4.0f).requiresTool());
-	public static final Block EXAMPLE_BLOCK = new ExampleBlock(FabricBlockSettings.create().strength(4.0f).requiresTool());
 
 	public void onInitialize() {
 		FuelRegistry.INSTANCE.add(CUSTOM_ITEM, 300);
 		CompostingChanceRegistry.INSTANCE.add(CUSTOM_ITEM, 0.5F);
 
 		Registry.register(Registries.ITEM_GROUP, new Identifier("tutorial", "test_group"), ITEM_GROUP);
-
-		Registry.register(Registries.BLOCK, new Identifier("tutorial", "example_block"), EXAMPLE_BLOCK);
-		Registry.register(Registries.ITEM, new Identifier("tutorial", "example_block"), new BlockItem(EXAMPLE_BLOCK, new FabricItemSettings()));
-
-		Registry.register(Registries.BLOCK, new Identifier("tutorial", "example_block"), CHARGEABLE_BLOCK);
-		Registry.register(Registries.ITEM, new Identifier("tutorial", "example_block"), new BlockItem(CHARGEABLE_BLOCK, new FabricItemSettings()));
-
-		Registry.register(Registries.BLOCK, new Identifier("tutorial", "chargeable_block"), ChargeableBlock.CHARGEABLE_BLOCK);
-		Registry.register(Registries.ITEM, new Identifier("tutorial", "chargeable_block"), new BlockItem(ChargeableBlock.CHARGEABLE_BLOCK, new FabricItemSettings()));
-
 	}
 
 
